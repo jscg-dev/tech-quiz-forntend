@@ -15,5 +15,9 @@ export const routes: Routes = [
   {
     'path': 'users/:id',
     'component': UsersDetailsComponent
+  },
+  {
+    'path': 'new-user',
+    'component': UsersDetailsComponent
   }
 ];

@@ -19,7 +19,7 @@ export interface User {
   email: string,
   phone: string,
   registerDate?: Date,
-  updatedDat?: Date
+  updatedDate?: Date
 }
 
 @Injectable({
@@ -35,12 +35,36 @@ export class DummyService {
     private _http: HttpClient
   ) { }
 
+  public GetDetail(id: string): Observable<User> {
+    return this._http.get<User>(`${this.base}/${id}`, {
+      'headers': {
+        ...this.token
+      }
+    })
+  }
+
   public GetUsers(page: number = 0, limit: number = 5): Observable<Page<User>> {
     return this._http.get<Page<User>>(this.base, {
       'params': {
         limit,
         page
       },
+      'headers': {
+        ...this.token
+      }
+    })
+  }
+
+  public Add(ob: Partial<User>): Observable<User> {
+    return this._http.post<User>(`${this.base}/create`, ob, {
+      'headers': {
+        ...this.token
+      }
+    })
+  }
+
+  public Update(ob: Partial<User>): Observable<User> {
+    return this._http.put<User>(`${this.base}/${ob.id}`, ob, {
       'headers': {
         ...this.token
       }

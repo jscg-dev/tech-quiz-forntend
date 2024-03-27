@@ -57,6 +57,10 @@ export class UsersComponent implements OnInit {
     })
   }
 
+  public New(): void {
+    this._router.navigate(['new-user'])
+  }
+
   public RemoveUser(id: string): void {
     this._dummy.Remove(id)
       .subscribe(() => {

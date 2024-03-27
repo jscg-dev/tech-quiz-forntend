@@ -1,1 +1,123 @@
-<p>users-details works!</p>
+<div class="flex justify-center">
+  <form [formGroup]="ob" class="w-[50vw] max-w-[800px]" (ngSubmit)="Submit()">
+    <div class="space-y-12">
+      <div class="border-b border-gray-900/10 pb-12">
+        <h2 class="text-base font-semibold leading-7 text-gray-900">{{ (state == 'new' ? 'Crear' : 'Actualizar') + ' Usuario' }}</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">Diligencia los campos para {{ state == 'new' ? 'Crear' : 'Actualizar' }} el usuario.</p>
+  
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-4">
+            <label for="id" class="block text-sm font-medium leading-6 text-gray-900">Id</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <input type="text" formControlName="id" name="id" id="id" autocomplete="id" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 {{ob.controls['id'].disabled ? 'cursor-not-allowed' : ''}}">
+              </div>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="title" class="block text-sm font-medium leading-6 text-gray-900">T&iacute;tulo</label>
+            <div class="mt-2">
+              <select id="title" formControlName="title" name="title" autocomplete="title-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 {{ob.controls['title'].disabled ? 'cursor-not-allowed' : ''}}">
+                <option value="mr">Sr.</option>
+                <option value="ms">Sra.</option>
+                <option value="mrs">Sres.</option>
+                <option value="miss">Srita.</option>
+                <option value="dr">Dtor.</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="firstName" class="block text-sm font-medium leading-6 text-gray-900">Nombres</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <input type="text" formControlName="firstName" name="firstName" id="firstName" autocomplete="firstName" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 {{ob.controls['firstName'].disabled ? 'cursor-not-allowed' : ''}}">
+              </div>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="lastName" class="block text-sm font-medium leading-6 text-gray-900">Apellidos</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <input type="text" formControlName="lastName" name="lastName" id="lastName" autocomplete="lastName" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 {{ob.controls['lastName'].disabled ? 'cursor-not-allowed' : ''}}">
+              </div>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="picture" class="block text-sm font-medium leading-6 text-gray-900">Imagen</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <input type="text" formControlName="picture" name="picture" id="picture" autocomplete="picture" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 {{ob.controls['picture'].disabled ? 'cursor-not-allowed' : ''}}">
+              </div>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="gender" class="block text-sm font-medium leading-6 text-gray-900">G&eacute;nero</label>
+            <div class="mt-2">
+              <select id="gender" formControlName="gender" name="gender" autocomplete="gender-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 {{ob.controls['gender'].disabled ? 'cursor-not-allowed' : ''}}">
+                <option value="male">Masculino</option>
+                <option value="female">Femenino</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Correo</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <input type="text" formControlName="email" name="email" id="email" autocomplete="email" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 {{ob.controls['email'].disabled ? 'cursor-not-allowed' : ''}}">
+              </div>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Tel&eacute;fono</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <input type="text" formControlName="phone" name="phone" id="phone" autocomplete="phone" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 {{ob.controls['phone'].disabled ? 'cursor-not-allowed' : ''}}">
+              </div>
+            </div>
+          </div>
+
+          @if(ob.controls['registerDate'].value) {
+            <div class="sm:col-span-4">
+              <label for="registerDate" class="block text-sm font-medium leading-6 text-gray-900">Fecha Reg.</label>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <div class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 cursor-not-allowed">
+                    {{ob.controls['registerDate'].value | date}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+
+          @if (ob.controls['updatedDate'].value) {
+            <div class="sm:col-span-4">
+              <label for="updatedDate" class="block text-sm font-medium leading-6 text-gray-900">Fecha Actua.</label>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <div class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 cursor-not-allowed">
+                    {{ob.controls['updatedDate'].value | date}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  
+    <div class="mt-6 flex items-center justify-end gap-x-6">
+      <button (click)="Back()" type="button" class="text-sm font-semibold leading-6 text-gray-900">Volver</button>
+      @if (edit) {
+        <button type="submit" [disabled]="ob.invalid" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 {{ ob.invalid ? 'cursor-not-allowed' : '' }}">Guardar</button>
+      }
+    </div>
+  </form>
+</div>
