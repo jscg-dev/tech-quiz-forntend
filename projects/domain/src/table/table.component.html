@@ -1,0 +1,13 @@
+<table>
+  <thead>
+    <ng-content select="[header]"></ng-content>
+  </thead>
+  <tbody>
+    @if (data) {
+      @for (row of data; track $index) {
+        <ng-container *ngTemplateOutlet="_bodyTemplate.template; context: { $implicit: row, $index }"></ng-container>
+      }
+    }
+    <ng-content select="[footer]"></ng-content>
+  </tbody>
+</table>
